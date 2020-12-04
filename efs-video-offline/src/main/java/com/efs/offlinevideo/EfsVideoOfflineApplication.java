@@ -1,4 +1,4 @@
-package com.efs.onlinevideo;
+package com.efs.offlinevideo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient
 @EnableFeignClients
 @SpringBootApplication
-public class EfsVideoOnlineApplication {
+public class EfsVideoOfflineApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EfsVideoOnlineApplication.class, args);
+		SpringApplication.run(EfsVideoOfflineApplication.class, args);
 	}
 
 }
