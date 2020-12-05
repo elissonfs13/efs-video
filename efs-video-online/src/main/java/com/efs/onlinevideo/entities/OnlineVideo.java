@@ -2,6 +2,9 @@ package com.efs.onlinevideo.entities;
 
 import java.time.LocalDate;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -9,9 +12,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Document(collection = "onlinevideos")
 public class OnlineVideo {
 	
-	private Long id;
+	@Id
+	private String id;
 	
 	private String titulo;
 	
@@ -31,11 +36,11 @@ public class OnlineVideo {
 	
 	private LocalDate dataVisualizacao;
 	
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

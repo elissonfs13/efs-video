@@ -14,7 +14,7 @@ public class OnlineVideo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
+	private String id;
 	
 	private String titulo;
 	
@@ -27,18 +27,18 @@ public class OnlineVideo implements Serializable {
 	private Category categoria;
 	
 	private String nomeCanalSite;
-	
+
 	private String urlCanalSite;
 	
 	private LocalDate dataCriacao;
 	
 	private LocalDate dataVisualizacao;
 	
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
