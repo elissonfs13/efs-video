@@ -39,3 +39,10 @@ build/
 ### Mac ###
 
 .DS_Store
+
+### PyCharm ###
+.idea
+venv
+efs-video-download/.idea
+efs-video-download/venv
+efs-video-download/__pycache__
