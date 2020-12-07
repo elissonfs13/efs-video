@@ -18,24 +18,24 @@ public class OnlineVideo {
 	@Id
 	private String id;
 	
-	private String titulo;
+	private String title;
 	
-	private String descricao;
+	private String description;
 	
-	private String tempo;
+	private String duration;
 	
 	private String urlSite;
 
-	private Category categoria;
+	private Category category;
 	
-	private String nomeCanalSite;
+	private String nameChannelSite;
 	
-	private String urlCanalSite;
+	private String urlChannelSite;
 	
-	private LocalDate dataCriacao;
+	private LocalDate creationDate;
 	
-	private LocalDate dataVisualizacao;
-	
+	private LocalDate previewDate;
+
 	public String getId() {
 		return id;
 	}
@@ -44,28 +44,28 @@ public class OnlineVideo {
 		this.id = id;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getTempo() {
-		return tempo;
+	public String getDuration() {
+		return duration;
 	}
 
-	public void setTempo(String tempo) {
-		this.tempo = tempo;
+	public void setDuration(String duration) {
+		this.duration = duration;
 	}
 
 	public String getUrlSite() {
@@ -76,52 +76,52 @@ public class OnlineVideo {
 		this.urlSite = urlSite;
 	}
 
-	public Category getCategoria() {
-		return categoria;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategoria(Category categoria) {
-		this.categoria = categoria;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
-	public String getNomeCanalSite() {
-		return nomeCanalSite;
+	public String getNameChannelSite() {
+		return nameChannelSite;
 	}
 
-	public void setNomeCanalSite(String nomeCanalSite) {
-		this.nomeCanalSite = nomeCanalSite;
+	public void setNameChannelSite(String nameChannelSite) {
+		this.nameChannelSite = nameChannelSite;
 	}
 
-	public String getUrlCanalSite() {
-		return urlCanalSite;
+	public String getUrlChannelSite() {
+		return urlChannelSite;
 	}
 
-	public void setUrlCanalSite(String urlCanalSite) {
-		this.urlCanalSite = urlCanalSite;
+	public void setUrlChannelSite(String urlChannelSite) {
+		this.urlChannelSite = urlChannelSite;
 	}
 
-	public LocalDate getDataCriacao() {
-		return dataCriacao;
+	public LocalDate getCreationDate() {
+		return creationDate;
 	}
 
-	public void setDataCriacao(LocalDate dataCriacao) {
-		this.dataCriacao = dataCriacao;
+	public void setCreationDate(LocalDate creationDate) {
+		this.creationDate = creationDate;
 	}
 
-	public LocalDate getDataVisualizacao() {
-		return dataVisualizacao;
+	public LocalDate getPreviewDate() {
+		return previewDate;
 	}
 
-	public void setDataVisualizacao(LocalDate dataVisualizacao) {
-		this.dataVisualizacao = dataVisualizacao;
+	public void setPreviewDate(LocalDate previewDate) {
+		this.previewDate = previewDate;
 	}
 
 	@Override
 	public String toString() {
-		return "OnlineVideo [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", tempo=" + tempo
-				+ ", urlSite=" + urlSite + ", categoria=" + categoria + ", nomeCanalSite=" + nomeCanalSite
-				+ ", urlCanalSite=" + urlCanalSite + ", dataCriacao=" + dataCriacao + ", dataVisualizacao="
-				+ dataVisualizacao + "]";
+		return "OnlineVideo [id=" + id + ", title=" + title + ", description=" + description + ", duration=" + duration
+				+ ", urlSite=" + urlSite + ", category=" + category + ", nameChannelSite=" + nameChannelSite
+				+ ", urlChannelSite=" + urlChannelSite + ", creationDate=" + creationDate + ", previewDate="
+				+ previewDate + "]";
 	}
-
+	
 }

@@ -8,7 +8,7 @@ def get_path():
     if so == 'Windows':
         return r'C:\efs-video-download\videos'
     elif so == 'Linux':
-        return r'/usr/efs-video-download/videos'
+        return r'/home/elissonfs/efs-video-download/videos'
     else:
         return ''
 

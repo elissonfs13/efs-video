@@ -8,6 +8,6 @@ import com.efs.onlinevideo.entities.OnlineVideo;
 
 public interface OnlineVideoRepository extends MongoRepository<OnlineVideo, String>{
 	
-	List<OnlineVideo> findByCategoria(String categoria);
+	List<OnlineVideo> findByCategory(String category);
 
 }

@@ -32,8 +32,8 @@ public class OnlineVideosService {
 		return onlineVideoRepository.findById(id);
 	}
 
-	public List<OnlineVideo> findByCategory(String categoria) {
-		return onlineVideoRepository.findByCategoria(categoria);
+	public List<OnlineVideo> findByCategory(String category) {
+		return onlineVideoRepository.findByCategory(category);
 	}
 	
 	public OnlineVideo saveOnlineVideo(OnlineVideo onlineVideo) {

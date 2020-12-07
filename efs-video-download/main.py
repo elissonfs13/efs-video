@@ -19,8 +19,7 @@ while True:
     elif escolha == '2':
         print("Digite o nome do vídeo: ")
         name = input(">> ")
-        name_formated = name.replace('"', '').replace("'", '').strip()
-        conversor.run(name_formated)
+        conversor.run(name)
     elif escolha == '3':
         print("Fim da execução do teste")
         break
