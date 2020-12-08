@@ -1,4 +1,6 @@
-package com.efs.onlinevideo.feignclients;
+package com.efs.filereader.feignclients;
+
+import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -6,13 +8,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.efs.onlinevideo.entities.OnlineVideo;
-
 @Component
 @FeignClient(name = "efs-video-offline", path = "/offlinevideo")
 public interface OfflineVideoFeignClient {
 	
-	@PostMapping
-	ResponseEntity<Void> postOnlineVideo(@RequestBody OnlineVideo onlineVideo);
+	@PostMapping(value = "/urls")
+	ResponseEntity<Void> postVideoUrls(@RequestBody List<String> urlsVideos);
 
 }

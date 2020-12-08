@@ -39,7 +39,7 @@ public class OnlineVideosService {
 	public OnlineVideo saveOnlineVideo(OnlineVideo onlineVideo) {
 		OnlineVideo onlineVideoSaved = onlineVideoRepository.save(onlineVideo);
 		
-		ResponseEntity<OnlineVideo> resultFeign = offlineVideoFeignClient.postOnlineVideo(onlineVideoSaved);
+		ResponseEntity<Void> resultFeign = offlineVideoFeignClient.postOnlineVideo(onlineVideoSaved);
 		logger.info("STATUS FEIGN CLIENT: " + resultFeign.getStatusCode());
 		
 		return onlineVideoSaved;

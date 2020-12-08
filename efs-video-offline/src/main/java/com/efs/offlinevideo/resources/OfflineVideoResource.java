@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.efs.offlinevideo.entities.OnlineVideo;
 import com.efs.offlinevideo.services.OfflineVideoService;
 
-
-
 @RefreshScope
 @RestController
 @RequestMapping(value = "/offlinevideo")
@@ -36,10 +34,18 @@ public class OfflineVideoResource {
 	}	
 	
 	@PostMapping
-	public ResponseEntity<OnlineVideo> postOnlineVideo(@RequestBody final OnlineVideo onlineVideo) {
+	public ResponseEntity<Void> postOnlineVideo(@RequestBody final OnlineVideo onlineVideo) {
 		logger.info("efs-video-offline: " + onlineVideo.toString());
 		
-		offlineVideoService.sendVideoToDownload(onlineVideo);
+		offlineVideoService.sendVideoToDownload(onlineVideo.getUrlSite());
+		return ResponseEntity.ok().build();
+	}
+	
+	@PostMapping(value = "/urls")
+	public ResponseEntity<Void> postVideoUrls(@RequestBody final List<String> urlVideos) {
+		logger.info("efs-video-offline: " + urlVideos.size() + " urls to download");
+		
+		offlineVideoService.sendVideosToDownload(urlVideos);
 		return ResponseEntity.ok().build();
 	}
 
