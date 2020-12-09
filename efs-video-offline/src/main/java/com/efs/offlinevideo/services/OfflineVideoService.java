@@ -20,7 +20,7 @@ public class OfflineVideoService {
 	public void sendVideoToDownload(final String urlVideo) {
 		
 		downloadProducer.send(urlVideo);
-		logger.info("efs-video-offline: SEND TO DOWNLOAD TOPIC; " + urlVideo);
+		logger.info("efs-video-offline: SEND TO DOWNLOAD TOPIC: " + urlVideo);
 		
 	}
 	
