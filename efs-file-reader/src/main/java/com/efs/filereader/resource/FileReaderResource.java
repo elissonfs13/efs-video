@@ -1,4 +1,4 @@
-package com.efs.filereader.repositories;
+package com.efs.filereader.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -12,14 +12,20 @@ import com.efs.filereader.services.FileReaderService;
 @RefreshScope
 @RestController
 @RequestMapping(value = "/filereader")
-public class FileReaderRepository {
+public class FileReaderResource {
 	
 	@Autowired
 	private FileReaderService fileReaderService;
 	
 	@GetMapping
 	public ResponseEntity<Void> findAll() {
-		fileReaderService.executeSpark();
+		fileReaderService.readFileWithSpark();
+		return ResponseEntity.ok().build();
+	}	
+	
+	@GetMapping(value = "/join")
+	public ResponseEntity<Void> join() {
+		fileReaderService.joinFilesWithSpark();
 		return ResponseEntity.ok().build();
 	}	
 
