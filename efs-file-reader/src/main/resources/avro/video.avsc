@@ -1,0 +1,27 @@
+{
+  "namespace": "com.efs.filereader.entities", 
+  "type": "record",
+  "name": "AvroVideo",
+  "fields": [
+    {
+      "name": "identifier",
+      "type": "string",
+      "avro.java.string": "String"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "avro.java.string": "String"
+    },
+	{
+      "name": "url",
+      "type": "string",
+      "avro.java.string": "String"
+    },
+	{
+      "name": "localPath",
+      "type": "string",
+      "avro.java.string": "String"
+    }
+  ]
+}

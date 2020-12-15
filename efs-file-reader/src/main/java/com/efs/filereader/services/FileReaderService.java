@@ -17,8 +17,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.efs.filereader.entities.Video;
+import com.efs.filereader.entities.SparkVideo;
 import com.efs.filereader.feignclients.OfflineVideoFeignClient;
+import com.efs.filereader.kafka.Sender;
 
 
 @Service
@@ -42,6 +43,9 @@ public class FileReaderService {
 	private SparkSession session;
 	
 	@Autowired
+	private KafkaAvroService kafkaAvroService;
+	
+	@Autowired
 	private OfflineVideoFeignClient offlineVideoFeignClient;
 	
 	public void readFileWithSpark() {
@@ -54,10 +58,12 @@ public class FileReaderService {
 	public void joinFilesWithSpark() {
 		
 		Dataset<Row> dsRowVideo = getJoinDataSet();
-		List<Video> videos = convertDataSetToVideo(dsRowVideo);
+		List<SparkVideo> videos = convertDataSetToVideo(dsRowVideo);
 		
 		logger.info("efs-file-reader: Number of videos converted: " + videos.size());
 		videos.stream().forEach(video -> logger.info("efs-file-reader: VIDEO CONVERTED: " + video.toString()));
+		
+		kafkaAvroService.sendToKafkaAvro(videos);
 	}
 	
 	private Dataset<Row> getJoinDataSet() {
@@ -71,16 +77,16 @@ public class FileReaderService {
 		return dsVideo;
 	}
 	
-	private List<Video> convertDataSetToVideo(Dataset<Row> dsRowVideo) {
+	private List<SparkVideo> convertDataSetToVideo(Dataset<Row> dsRowVideo) {
 		
-		Dataset<Video> dsVideo = dsRowVideo.map((MapFunction<Row, Video>)row -> {
-			Video video = new Video();
+		Dataset<SparkVideo> dsVideo = dsRowVideo.map((MapFunction<Row, SparkVideo>)row -> {
+			SparkVideo video = new SparkVideo();
 			video.setName(row.getAs("title"));
 			video.setIdentifier(row.getAs("identifier"));
 			video.setLocalPath(row.getAs("path"));
 			video.setUrl(row.getAs("url"));
 			return video;
-		}, Encoders.bean(Video.class));
+		}, Encoders.bean(SparkVideo.class));
 		
 		return dsVideo.collectAsList();
 	}

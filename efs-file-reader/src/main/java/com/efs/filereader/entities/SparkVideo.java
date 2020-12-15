@@ -1,6 +1,6 @@
 package com.efs.filereader.entities;
 
-public class Video {
+public class SparkVideo {
 	
 	private String identifier;
 	private String name;
