@@ -1,5 +1,5 @@
-import pytube
 import platform
+import pytube
 import youtube_dl
 
 
@@ -39,3 +39,4 @@ def run(url):
     except Exception as e:
         print("The video with url: " + url + " can't be downloaded")
         print(e)
+1

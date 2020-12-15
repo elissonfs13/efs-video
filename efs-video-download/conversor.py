@@ -1,6 +1,6 @@
+import os
 import platform
 import moviepy.editor
-import os
 
 
 def get_path_videos(name):
