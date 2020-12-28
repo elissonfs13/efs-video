@@ -12,6 +12,6 @@ public class Receiver {
 
   	@KafkaListener(topics = "${kafka.topic.avro}")
   	public void receive(AvroVideo video) {
-	    LOGGER.info("efs-kafka-learning: received video = " + video.toString());
+	    LOGGER.info("efs-kafka-learning: AVRO VIDEO CONSUMED = " + video.toString());
   	}
 }

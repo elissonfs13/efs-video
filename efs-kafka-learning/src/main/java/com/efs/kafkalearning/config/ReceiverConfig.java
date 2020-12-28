@@ -21,7 +21,7 @@ import com.efs.kafkalearning.kafkaavro.Receiver;
 @EnableKafka
 public class ReceiverConfig {
 
-  @Value("${kafka.bootstrap-servers}")
+  @Value("${spring.kafka.consumer.bootstrap-servers}")
   private String bootstrapServers;
 
   @Bean
@@ -34,10 +34,26 @@ public class ReceiverConfig {
 
     return props;
   }
+  
+  @Bean
+  public Map<String, Object> consumerStrConfigs() {
+    Map<String, Object> props = new HashMap<>();
+    props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+    props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+    props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+    props.put(ConsumerConfig.GROUP_ID_CONFIG, "download");
+
+    return props;
+  }
 
   @Bean
   public ConsumerFactory<String, AvroVideo> consumerFactory() {
     return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(), new AvroDeserializer<>(AvroVideo.class));
+  }
+  
+  @Bean
+  public ConsumerFactory<String, String> consumerStrFactory() {
+    return new DefaultKafkaConsumerFactory<>(consumerStrConfigs(), new StringDeserializer(), new StringDeserializer());
   }
 
   @Bean
@@ -45,6 +61,15 @@ public class ReceiverConfig {
     ConcurrentKafkaListenerContainerFactory<String, AvroVideo> factory =
         new ConcurrentKafkaListenerContainerFactory<>();
     factory.setConsumerFactory(consumerFactory());
+
+    return factory;
+  }
+  
+  @Bean
+  public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerStrFactory() {
+    ConcurrentKafkaListenerContainerFactory<String, String> factory =
+        new ConcurrentKafkaListenerContainerFactory<>();
+    factory.setConsumerFactory(consumerStrFactory());
 
     return factory;
   }
