@@ -5,9 +5,9 @@ import platform
 def get_path():
     so = platform.system()
     if so == 'Windows':
-        return r'..\efs-file-reader\spark.csv'
+        return r'..\efs-resources\files\spark.csv'
     elif so == 'Linux':
-        return r'../efs-file-reader/spark.csv'
+        return r'../efs-resources/files/spark.csv'
     else:
         return ''
 

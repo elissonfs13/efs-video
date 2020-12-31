@@ -21,8 +21,9 @@ try:
             continue
         elif not msg.error():
             url = str(msg.value())
+            url_formated = url.replace('b\'http', 'http').replace('"', '').replace("'", '').strip()
             print('Received message: {0}'.format(url))
-            downloader.run(url)
+            downloader.run(url_formated)
         elif msg.error().code() == KafkaError._PARTITION_EOF:
             print('End of partition reached {0}/{1}'
                   .format(msg.topic(), msg.partition()))

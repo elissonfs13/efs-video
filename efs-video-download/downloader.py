@@ -6,9 +6,9 @@ import youtube_dl
 def get_path():
     so = platform.system()
     if so == 'Windows':
-        return r'C:\efs-video-download\videos'
+        return r'..\efs-resources\videos'
     elif so == 'Linux':
-        return r'/home/elissonfs/efs-video-download/videos'
+        return r'../efs-resources/videos'
     else:
         return ''
 

@@ -28,7 +28,7 @@ public class CsvItemWriter implements ItemWriter<Video>, StepExecutionListener {
 	@Override
 	public void write(List<? extends Video> videos) throws Exception {
 		for (Video video : videos) {
-			fu.writeLine(video);
+			fu.writeVideo(video);
             logger.info("efs-video-batch: ESCREVENDO VIDEO: " + video.toString());
 		}		
 	}

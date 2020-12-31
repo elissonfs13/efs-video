@@ -6,9 +6,9 @@ import moviepy.editor
 def get_path_videos(name):
     so = platform.system()
     if so == 'Windows':
-        return r'C:\efs-video-download\videos\\' + name
+        return r'..\efs-resources\videos\\' + name
     elif so == 'Linux':
-        return r'/home/elissonfs/efs-video-download/videos/' + name
+        return r'../efs-resources/videos/' + name
     else:
         return ''
 
@@ -16,9 +16,9 @@ def get_path_videos(name):
 def get_path_musicas(name):
     so = platform.system()
     if so == 'Windows':
-        return r'C:\efs-video-download\musicas\\' + name
+        return r'..\efs-resources\songs\\' + name
     elif so == 'Linux':
-        return r'/home/elissonfs/efs-video-download/musicas/' + name
+        return r'../efs-resources/songs/' + name
     else:
         return ''
 

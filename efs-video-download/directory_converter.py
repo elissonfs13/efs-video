@@ -6,9 +6,9 @@ import conversor
 def get_path():
     so = platform.system()
     if so == 'Windows':
-        return r'C:\efs-video-download\videos\toMP3'
+        return r'..\efs-resources\videos\toMP3'
     elif so == 'Linux':
-        return r'/home/elissonfs/efs-video-download/videos/toMP3'
+        return r'../efs-resources/videos/toMP3'
     else:
         return ''
 

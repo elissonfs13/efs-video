@@ -46,3 +46,7 @@ venv
 efs-video-download/.idea
 efs-video-download/venv
 efs-video-download/__pycache__
+
+### Videos and songs
+efs-resources/videos/*
+efs-resources/songs/*

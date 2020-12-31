@@ -46,14 +46,15 @@ public class FileUtils {
         }
     }
 
-    public void writeLine(Video video) {
+    public void writeVideo(Video video) {
         try {
             if (CSVWriter == null) 
             	initWriter();
             
-            String[] lineStr = new String[2];
+            String[] lineStr = new String[3];
             lineStr[0] = video.getId();
             lineStr[1] = video.getFilename();
+            lineStr[2] = video.getAbsolutePath();
             
             CSVWriter.writeNext(lineStr);
             
