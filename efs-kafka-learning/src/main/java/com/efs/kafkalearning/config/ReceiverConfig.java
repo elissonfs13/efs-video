@@ -58,19 +58,17 @@ public class ReceiverConfig {
 
   @Bean
   public ConcurrentKafkaListenerContainerFactory<String, AvroVideo> kafkaListenerContainerFactory() {
-    ConcurrentKafkaListenerContainerFactory<String, AvroVideo> factory =
-        new ConcurrentKafkaListenerContainerFactory<>();
+    ConcurrentKafkaListenerContainerFactory<String, AvroVideo> factory = new ConcurrentKafkaListenerContainerFactory<>();
     factory.setConsumerFactory(consumerFactory());
-
+    
     return factory;
   }
   
   @Bean
   public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerStrFactory() {
-    ConcurrentKafkaListenerContainerFactory<String, String> factory =
-        new ConcurrentKafkaListenerContainerFactory<>();
+    ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
     factory.setConsumerFactory(consumerStrFactory());
-
+    
     return factory;
   }
 
