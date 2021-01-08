@@ -29,11 +29,5 @@ public class OnlineVideo {
 	private Category category;
 	
 	private String idOfflineVideo;
-
-	@Override
-	public String toString() {
-		return "OnlineVideo [id=" + id + ", title=" + title + ", description=" + description + ", duration=" + duration
-				+ ", urlSite=" + urlSite + ", category=" + category + ", idOfflineVideo=" + idOfflineVideo + "]";
-	}
 	
 }

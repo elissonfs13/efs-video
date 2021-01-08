@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.efs.onlinevideo.entities.OnlineVideo;
+import com.efs.onlinevideo.entities.VideoDownloaded;
 import com.efs.onlinevideo.services.OnlineVideosService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
@@ -69,6 +70,12 @@ public class OnlineVideoResource {
 		
 		OnlineVideo onlineVideoSaved = onlineVideosService.saveOnlineVideoAlternative(onlineVideo);
 		return ResponseEntity.ok(onlineVideoSaved);
+	}
+	
+	@PostMapping(value = "/info")
+	public ResponseEntity<Void> receiveVideoDowloaded(@RequestBody final VideoDownloaded video) {
+		logger.info("efs-video-online: VIDEO DOWNLOADED: " + video.toString());
+		return ResponseEntity.ok().build();
 	}
 	
 	@PutMapping(value = "/{id}")
