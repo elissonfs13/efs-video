@@ -25,7 +25,7 @@ public class VideoItemProcessor implements ItemProcessor<File, Video> {
         		.id(buildIdentifierByName(name))
                 .filename(name)
                 .absolutePath(item.getAbsolutePath())
-                .fileSize(item.getTotalSpace())
+                .fileSize(item.length())
                 .build();
 
         logger.info("efs-video-batch: FILE IN VIDEO PATH: {}", video);

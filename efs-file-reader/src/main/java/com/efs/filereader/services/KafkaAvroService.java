@@ -27,7 +27,12 @@ public class KafkaAvroService {
 				sparkVideo.getIdentifier(), 
 				sparkVideo.getName(), 
 				sparkVideo.getUrl(), 
-				sparkVideo.getLocalPath()
+				sparkVideo.getDescription(),
+				sparkVideo.getDuration(),
+				sparkVideo.getCategory(),
+				sparkVideo.getIdOnlineVideo(),
+				sparkVideo.getLocalPath(), 
+				sparkVideo.getSize()
 		);
 	}
 

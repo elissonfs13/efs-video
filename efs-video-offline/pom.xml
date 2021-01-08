@@ -61,6 +61,11 @@
 		    <groupId>org.springframework.kafka</groupId>
 		    <artifactId>spring-kafka</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>com.opencsv</groupId>
+		    <artifactId>opencsv</artifactId>
+		    <version>4.1</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

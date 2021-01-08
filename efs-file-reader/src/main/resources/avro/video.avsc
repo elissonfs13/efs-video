@@ -19,7 +19,32 @@
       "avro.java.string": "String"
     },
 	{
+      "name": "description",
+      "type": "string",
+      "avro.java.string": "String"
+    },
+    {
+      "name": "duration",
+      "type": "string",
+      "avro.java.string": "String"
+    },
+    {
+      "name": "category",
+      "type": "string",
+      "avro.java.string": "String"
+    },
+	{
+      "name": "idOnlineVideo",
+      "type": "string",
+      "avro.java.string": "String"
+    },
+	{
       "name": "localPath",
+      "type": "string",
+      "avro.java.string": "String"
+    },
+    {
+      "name": "size",
       "type": "string",
       "avro.java.string": "String"
     }

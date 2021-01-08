@@ -7,7 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.efs.offlinevideo.entities.OnlineVideo;
 import com.efs.offlinevideo.producers.DownloadProducer;
+import com.efs.offlinevideo.utils.FileUtils;
 
 @Service
 public class OfflineVideoService {
@@ -16,6 +18,9 @@ public class OfflineVideoService {
 	
 	@Autowired
 	private DownloadProducer downloadProducer;
+	
+	@Autowired
+	private FileUtils fu;
 	
 	public void sendVideoToDownload(final String urlVideo) {
 		
@@ -29,6 +34,13 @@ public class OfflineVideoService {
 		for (String urlVideo : urlVideos) {
 			sendVideoToDownload(urlVideo);
 		}
+		
+	}
+	
+	public void writeInfoVideoInCsvFile(OnlineVideo video) {
+		
+		fu.writeVideo(video);
+		logger.info("efs-video-offline: WRITE INFO VIDEO IN CSV FILE: " + video.toString());
 		
 	}
 

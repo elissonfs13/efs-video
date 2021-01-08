@@ -1,20 +1,24 @@
-package com.efs.videobatch.utils;
+package com.efs.offlinevideo.utils;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.efs.videobatch.entities.Video;
+import com.efs.offlinevideo.entities.OnlineVideo;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 public class FileUtils {
-
-    private final Logger logger = LoggerFactory.getLogger(FileUtils.class);
+	
+	private final Logger logger = LoggerFactory.getLogger(FileUtils.class);
 
     private String fileName;
     private CSVReader CSVReader;
@@ -27,7 +31,7 @@ public class FileUtils {
         this.fileName = fileName;
     }
 
-    public Video readVideo() {
+    public OnlineVideo readVideo() {
         try {
             if (CSVReader == null) 
             	initReader();
@@ -37,7 +41,7 @@ public class FileUtils {
             if (video == null) 
             	return null;
             
-            return new Video(video[0], video[1], video[2], Long.valueOf(video[3]));
+            return new OnlineVideo(video[6], video[1], video[2], video[3], video[4], video[5], video[0]);
             
         } catch (Exception e) {
         	
@@ -46,16 +50,19 @@ public class FileUtils {
         }
     }
 
-    public void writeVideo(Video video) {
+    public void writeVideo(OnlineVideo video) {
         try {
             if (CSVWriter == null) 
             	initWriter();
             
             String[] lineStr = new String[3];
-            lineStr[0] = video.getId();
-            lineStr[1] = video.getFilename();
-            lineStr[2] = video.getAbsolutePath();
-            lineStr[3] = video.fileSizeFormated();
+            lineStr[0] = buildIdentifierByName(video.getTitle());
+            lineStr[1] = video.getTitle();
+            lineStr[2] = video.getUrlSite();
+            lineStr[3] = video.getDescription();
+            lineStr[4] = video.getCategory().name();
+            lineStr[5] = video.getDuration();
+            lineStr[6] = video.getId();
             
             CSVWriter.writeNext(lineStr);
             
@@ -111,6 +118,15 @@ public class FileUtils {
         	
             logger.error("Erro ao fechar leitor.");
         }
+    }
+    
+    private String buildIdentifierByName(String filename) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    	
+    	byte[] hash = MessageDigest
+    			.getInstance("MD5")
+    			.digest(filename.getBytes("UTF-8"));
+    	
+		return new BigInteger(1, hash).toString(16);
     }
 
 }

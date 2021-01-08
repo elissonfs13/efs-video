@@ -1,12 +1,1 @@
-identifier,name,path
-AAA001,/home/elissonfs/efs-video-download/videos
-AAA002,/home/elissonfs/efs-video-download/musicas
-"da7d56e5b17be44f60b778990a441c54","Coldplay - Fix You (Official Video).mp4","/home/elissonfs/Documents/Pessoal/efs-video/efs-video-batch/../efs-resources/videos/Coldplay - Fix You (Official Video).mp4"
-"c7bbe4f89d7f7c16276589b4b08b0c2d","Jason Mraz - I'm Yours (Live in London).mp4","/home/elissonfs/Documents/Pessoal/efs-video/efs-video-batch/../efs-resources/videos/Jason Mraz - I'm Yours (Live in London).mp4"
-"3844937fc14ae76b5bc9818c4fd57607","Novah - Ghost (feat Amanda Mair).mp4","/home/elissonfs/Documents/Pessoal/efs-video/efs-video-batch/../efs-resources/videos/Novah - Ghost (feat Amanda Mair).mp4"
-"b1fae2d5590f6a8ea8a962a048f28b57","The Scientist.mp4","/home/elissonfs/Documents/Pessoal/efs-video/efs-video-batch/../efs-resources/videos/The Scientist.mp4"
-"c88a6a0c371f8617cd2b8dc3cc626688","Try not to cry when you listen to this cover of FIX YOU by Coldplay.mp4","/home/elissonfs/Documents/Pessoal/efs-video/efs-video-batch/../efs-resources/videos/Try not to cry when you listen to this cover of FIX YOU by Coldplay.mp4"
-"da7d56e5b17be44f60b778990a441c54","Coldplay - Fix You (Official Video).mp4","/home/elissonfs/Documents/Pessoal/efs-video/efs-video-batch/../efs-resources/videos/toMP3/Coldplay - Fix You (Official Video).mp4"
-"c7bbe4f89d7f7c16276589b4b08b0c2d","Jason Mraz - I'm Yours (Live in London).mp4","/home/elissonfs/Documents/Pessoal/efs-video/efs-video-batch/../efs-resources/videos/toMP3/Jason Mraz - I'm Yours (Live in London).mp4"
-"3844937fc14ae76b5bc9818c4fd57607","Novah - Ghost (feat Amanda Mair).mp4","/home/elissonfs/Documents/Pessoal/efs-video/efs-video-batch/../efs-resources/videos/toMP3/Novah - Ghost (feat Amanda Mair).mp4"
-"b1fae2d5590f6a8ea8a962a048f28b57","The Scientist.mp4","/home/elissonfs/Documents/Pessoal/efs-video/efs-video-batch/../efs-resources/videos/toMP3/The Scientist.mp4"
+identifier,name,path,size

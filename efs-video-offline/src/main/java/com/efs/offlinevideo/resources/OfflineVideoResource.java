@@ -37,6 +37,7 @@ public class OfflineVideoResource {
 	public ResponseEntity<Void> postOnlineVideo(@RequestBody final OnlineVideo onlineVideo) {
 		logger.info("efs-video-offline: " + onlineVideo.toString());
 		
+		offlineVideoService.writeInfoVideoInCsvFile(onlineVideo);
 		offlineVideoService.sendVideoToDownload(onlineVideo.getUrlSite());
 		return ResponseEntity.ok().build();
 	}

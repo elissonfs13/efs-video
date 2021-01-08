@@ -85,6 +85,11 @@ public class FileReaderService {
 			video.setIdentifier(row.getAs("identifier"));
 			video.setLocalPath(row.getAs("path"));
 			video.setUrl(row.getAs("url"));
+			video.setDescription(row.getAs("description"));
+			video.setCategory(row.getAs("category"));
+			video.setDuration(row.getAs("duration"));
+			video.setIdOnlineVideo(row.getAs("idOnlineVideo"));
+			video.setSize(row.getAs("size"));
 			return video;
 		}, Encoders.bean(SparkVideo.class));
 		
