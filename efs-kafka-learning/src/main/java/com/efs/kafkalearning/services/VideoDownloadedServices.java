@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.efs.kafkalearning.entities.AvroVideo;
 import com.efs.kafkalearning.entities.VideoDownloaded;
+import com.efs.kafkalearning.feignclients.OfflineVideoFeignClient;
 import com.efs.kafkalearning.feignclients.OnlineVideoFeignClient;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @Service
 public class VideoDownloadedServices {
@@ -17,10 +19,19 @@ public class VideoDownloadedServices {
 	@Autowired
 	private OnlineVideoFeignClient onlineVideoFeignClient;
 	
+	@Autowired
+	private OfflineVideoFeignClient offlineVideoFeignClient;
+	
+	@HystrixCommand(fallbackMethod = "sendVideoDownloadedWithConnectionRefused")
 	public void sendVideoDownloaded(AvroVideo avroVideo) {
 		VideoDownloaded videoDownloaded = getVideoDownloadedByAvroVideo(avroVideo);
 		onlineVideoFeignClient.postVideoDownloaded(videoDownloaded);
 		logger.info("efs-kafka-learning: VIDEO DOWNLOADED SEND TO VIDEO ONLINE MICROSERVICE = " + videoDownloaded.toString());
+	}
+	
+	public void sendVideoDownloadedWithConnectionRefused(AvroVideo avroVideo) {
+		VideoDownloaded videoDownloaded = getVideoDownloadedByAvroVideo(avroVideo);
+		logger.info("efs-kafka-learning: CONNECTION REFUSED SENDING VIDEO DOWNLOADED TO VIDEO ONLINE MICROSERVICE = " + videoDownloaded.toString());
 	}
 	
 	private VideoDownloaded getVideoDownloadedByAvroVideo(AvroVideo avroVideo) {
