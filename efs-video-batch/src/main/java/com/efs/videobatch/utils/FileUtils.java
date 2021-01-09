@@ -51,7 +51,7 @@ public class FileUtils {
             if (CSVWriter == null) 
             	initWriter();
             
-            String[] lineStr = new String[3];
+            String[] lineStr = new String[4];
             lineStr[0] = video.getId();
             lineStr[1] = video.getFilename();
             lineStr[2] = video.getAbsolutePath();

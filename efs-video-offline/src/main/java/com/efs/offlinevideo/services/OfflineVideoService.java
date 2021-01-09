@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.efs.offlinevideo.entities.OnlineVideo;
@@ -19,8 +20,8 @@ public class OfflineVideoService {
 	@Autowired
 	private DownloadProducer downloadProducer;
 	
-	@Autowired
-	private FileUtils fu;
+	@Value("${csv.outputpath}")
+	private String outputPath;
 	
 	public void sendVideoToDownload(final String urlVideo) {
 		
@@ -39,6 +40,7 @@ public class OfflineVideoService {
 	
 	public void writeInfoVideoInCsvFile(OnlineVideo video) {
 		
+		FileUtils fu = new FileUtils(outputPath);
 		fu.writeVideo(video);
 		logger.info("efs-video-offline: WRITE INFO VIDEO IN CSV FILE: " + video.toString());
 		

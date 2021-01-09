@@ -55,7 +55,7 @@ public class FileUtils {
             if (CSVWriter == null) 
             	initWriter();
             
-            String[] lineStr = new String[3];
+            String[] lineStr = new String[7];
             lineStr[0] = buildIdentifierByName(video.getTitle());
             lineStr[1] = video.getTitle();
             lineStr[2] = video.getUrlSite();
@@ -69,7 +69,12 @@ public class FileUtils {
         } catch (Exception e) {
         	
             logger.error("Erro ao escrever arquivo: " + this.fileName);
-        }
+            e.printStackTrace();
+            
+        } finally {
+			
+        	closeWriter();
+		}
     }
 
     private void initReader() throws Exception {

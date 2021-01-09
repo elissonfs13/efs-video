@@ -35,6 +35,9 @@ public class VideoItemProcessor implements ItemProcessor<File, Video> {
     
     private String buildIdentifierByName(String filename) throws NoSuchAlgorithmException, UnsupportedEncodingException {
     	
+    	// Retira o '.mp4' do nome do arquivo
+    	filename = filename.substring(0, filename.length() - 4);
+    	
     	byte[] hash = MessageDigest
     			.getInstance("MD5")
     			.digest(filename.getBytes("UTF-8"));
