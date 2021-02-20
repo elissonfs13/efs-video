@@ -1,17 +1,5 @@
 version: '3.6'
 services:
-  efs-eureka-server:
-    build: ./../../efs-eureka-server
-    container_name: "efs-eureka-server"
-    ports:
-      - 8761:8761
-  efs-api-gateway-zuul:
-    build: ./../../efs-api-gateway-zuul
-    container_name: "efs-api-gateway-zuul"
-    ports:
-      - 8765:8765
-    environment:
-      eureka.client.serviceUrl.defaultZone: http://efs-eureka-server:8761/eureka/
   zookeeper:
     image: confluentinc/cp-zookeeper:5.2.1
     environment:
