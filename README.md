@@ -23,7 +23,7 @@ Elisson Francisco da Silva
 - Spring Cloud Netflix: Service Discovery (Eureka Server), Circuit Breaker (Hystrix), Intelligent Routing (Zuul) e Client Side Load Balancing (Ribbon)
 - Spring Cloud Open Feign
 - Mongo DB: CRUD simples 
-- Apache Kafka: String Serealizer/Deserealizer e Avro Serealizer/Deserealizer
+- Apache Kafka: String Serializer/Deserializer e Avro Serializer/Deserializer
 - Apache Spark: Core e SQL (Join entre arquivos .csv)
 - Spring WebFlux: Programação reativa para exibição de vídeos locais
 - Spring Batch: Escrita em arquivo .csv em lote
